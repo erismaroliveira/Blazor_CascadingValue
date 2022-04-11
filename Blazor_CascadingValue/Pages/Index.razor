@@ -1,13 +1,18 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<body style="background-color: @config.CorDeFundo">
+    <h1>Hello, world!</h1>
 
-Welcome to your new app.
+    Welcome to your new app.
+</body>
 
-<CascadingValue Value="@Resposta">
+<CascadingValue Value="@Resposta" IsFixed="true">
     <Pergunta></Pergunta>
 </CascadingValue>
 
 @code {
     string Resposta = "Amar a Deus acima de todas as coisas";
+
+    [CascadingParameter]
+    Config config { get; set; }
 }

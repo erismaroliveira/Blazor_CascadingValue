@@ -9,16 +9,37 @@
     <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 </body>
 
+<div style="display: flex">
+    Selecione a cor
+    <div style="width: 150px">
+        <select @bind="@config.CorDeFundo" class="form-control" style="margin-top: 15px">
+            <option value="yellow">Amarelo</option>
+            <option value="green">Verde</option>
+            <option value="white">Branco</option>
+            <option value="red">Vermelho</option>
+            <option value="orange">Laranja</option>
+        </select>
+    </div>
+    
+    Selecione o tamanho da fonte
+    <div style="width: 150px">
+        <select @bind="@config.TamanhoFonte" class="form-control" style="margin-top: 15px">
+            <option value="20px">20</option>
+            <option value="40px">40</option>
+            <option value="60px">60</option>
+            <option value="80px">80</option>
+        </select>
+    </div>
+</div>
+
 @code {
+    [CascadingParameter]
+    Config config { get; set; }
+
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
     }
-}
-
-@code {
-    [CascadingParameter]
-    Config config { get; set; }
 }
