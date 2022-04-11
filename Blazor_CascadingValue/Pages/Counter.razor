@@ -1,0 +1,24 @@
+﻿@page "/counter"
+
+<body style="background-color: @config.CorDeFundo">
+
+    <p style="font-size: @config.TamanhoFonte">Counter</p>
+
+    <p>Current count: @currentCount</p>
+
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+</body>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+
+@code {
+    [CascadingParameter]
+    Config config { get; set; }
+}
